@@ -1,0 +1,15 @@
+{
+  "name": "ellehacks-react-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "postinstall": "(cd backend && npm install) && (cd ../frontend && npm install)",
+    "start": "concurrently \"cd backend && npm run start\" \"cd frontend && npm run start \"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.0.0"
+  }
+}
