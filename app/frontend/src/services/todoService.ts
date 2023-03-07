@@ -1,9 +1,13 @@
 import axios from 'axios';
 
-const backendUrl = 'http://localhost:8080'
+const backendUrl = 'http://localhost:8080';
+
+interface Results {
+  data?: any;
+}
 
 const getTodos = async () => {
-  let results = {};
+  let results: Results = {};
   try {
     results = await axios.get(`${backendUrl}/todos`);
     return results.data;
@@ -13,9 +17,8 @@ const getTodos = async () => {
   }
 };
 
-const deleteTodo = async (id) => {
-  console.log(id)
-  let results = {};
+const deleteTodo = async (id: any) => {
+  let results: Results = {};
   try {
     results = await axios.delete(`${backendUrl}/todos/${id}`);
     return results.data;
@@ -25,8 +28,8 @@ const deleteTodo = async (id) => {
   }
 };
 
-const updateTodo = async (id, text, isCompleted) => {
-  let results = {};
+const updateTodo = async (id: any, text: string, isCompleted: boolean) => {
+  let results: Results = {};
   try {
     results = await axios.put(`${backendUrl}/todos/${id}`, { text: text, isCompleted: isCompleted });
     return results.data;
@@ -36,10 +39,10 @@ const updateTodo = async (id, text, isCompleted) => {
   }
 };
 
-const createTodo = async (text) => {
-  let results = {};
+const createTodo = async (text: string) => {
+  let results: Results = {};
   try {
-    results = await axios.post(`${backendUrl}/todos`, { text: text })
+    results = await axios.post(`${backendUrl}/todos`, { text: text });
     return results.data;
   } catch (err) {
     console.log(err);

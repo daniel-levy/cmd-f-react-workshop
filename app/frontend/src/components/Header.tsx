@@ -12,7 +12,7 @@ const Header = () => {
         <Toolbar>
           <img src="Logo.jpg" alt="logo"/>
           <Typography variant="h5" component="div" sx={{ color: "#4B286D", flexGrow: 1 }}>
-            ElleHacks React Tutorial
+            cmd-f React Tutorial
           </Typography>
         </Toolbar>
       </AppBar>

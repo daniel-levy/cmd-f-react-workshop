@@ -1,14 +1,24 @@
-import React from 'react'
-import Box from '@mui/material/Box'
+import React from 'react';
+import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import FormControl from '@mui/material/FormControl';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const Todo = ({ todo, toggleTodo, removeTodo }) => {
+import { Todo as TodoInfo } from '../App';
+
+const Todo = ({
+  todo,
+  toggleTodo,
+  removeTodo,
+}: {
+  todo: TodoInfo;
+  toggleTodo: (index: number, text: string, isCompleted: boolean) => void;
+  removeTodo: (index: number) => void;
+}) => {
   return (
-    <Box sx={{ display: 'flex', p: 1, borderRadius: 1, alignItems: 'center'}}>
+    <Box sx={{ display: 'flex', p: 1, borderRadius: 1, alignItems: 'center' }}>
       <FormControl component="fieldset" variant="standard" sx={{ flexGrow: 1, p: 2 }}>
         <FormGroup>
           <FormControlLabel
@@ -16,7 +26,9 @@ const Todo = ({ todo, toggleTodo, removeTodo }) => {
             control={
               <Checkbox
                 checked={todo.isCompleted}
-                onChange={() => {toggleTodo(todo._id, todo.text, todo.isCompleted)}}
+                onChange={() => {
+                  toggleTodo(todo._id, todo.text, todo.isCompleted);
+                }}
                 name={`${todo._id}-${todo.text}`}
               />
             }
@@ -24,9 +36,13 @@ const Todo = ({ todo, toggleTodo, removeTodo }) => {
           />
         </FormGroup>
       </FormControl>
-      <DeleteIcon onClick={() => {removeTodo(todo._id)}}/>
+      <DeleteIcon
+        onClick={() => {
+          removeTodo(todo._id);
+        }}
+      />
     </Box>
-  )
-}
+  );
+};
 
-export default Todo
+export default Todo;
